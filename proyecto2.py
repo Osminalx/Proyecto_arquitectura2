@@ -1,3 +1,4 @@
+# Está función convierte los números de decimal a binario, es la base de todo el programa
 def toBinary(num: int):
     residuos = []
 
@@ -15,6 +16,9 @@ def toBinary(num: int):
         print(len(residuos))
         return residuos
 
+# Esta función toma como argumento una lista de numeros enteros(formato de los números binarios de este programa)
+# y los convierte a complemento a 1
+
 
 def Negate(residuos: list[int]):
     suodiser = []
@@ -26,6 +30,9 @@ def Negate(residuos: list[int]):
     print("C1 = ", suodiser)
     print(len(suodiser))
     return suodiser
+
+# Esta función toma una lista de enteros(formato de los binarios) y le añade un 1, para hacerlo
+# complemento a 2
 
 
 def C2(suodiser: list[int]):
@@ -42,6 +49,7 @@ def C2(suodiser: list[int]):
     return suodiser
 
 
+# Un intento distinto del complemnto a dos, que se quedó comentado
 """ def C2(suodiser: list[int]):
     complemento2 = []
     for i in range(len(suodiser)-1, 0, -1):
@@ -53,6 +61,8 @@ def C2(suodiser: list[int]):
             
     return complemento2 """
 
+# suma de binarios
+
 
 def sum(num: int, num2: int):
     bin1 = toBinary(num)
@@ -60,6 +70,8 @@ def sum(num: int, num2: int):
     sumdec = num+num2
     sumbin = toBinary(sumdec)
     print(sumdec)
+
+# resta de binarios
 
 
 def resta(num1: int, num2: int):
@@ -69,6 +81,8 @@ def resta(num1: int, num2: int):
     print("La resta decimal es: ", restaDec)
     resta = toBinary(restaDec)
     return resta
+
+# Esta función compara que número es mayor o si son iguales
 
 
 def comp(num1: int, num2: int):
@@ -81,12 +95,14 @@ def comp(num1: int, num2: int):
     elif num1 == num2:
         print(bin1, " = ", bin2)
 
-
+# comentarios para copy paste
 # entrada1 = input("ingresa un número entero sin signo: ")
 # entrada2 = input("ingresa un número entero sin signo: ")
 # num1 = int(entrada1)
 # num2 = int(entrada2)
 
+
+# Menú
 salir = True
 
 while salir == True:
