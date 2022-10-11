@@ -1,20 +1,36 @@
 # Está función convierte los números de decimal a binario, es la base de todo el programa
-def toBinary(num: int):
+def toBinary(nume: int):
     residuos = []
-
-    while num != 0:
-        residuos.insert(0, num % 2)
-        num //= 2
-    if(len(residuos) >= 17):
-        print(residuos, " Overflow")
-        return residuos
+    if nume < 0:
+        num = nume * -1
+        while num != 0:
+            residuos.insert(0, num % 2)
+            num //= 2
+        if(len(residuos) >= 17):
+            print(residuos, " Overflow")
+            return residuos
+        else:
+            for i in range(0, 16):
+                if len(residuos) < 16:
+                    residuos.insert(0, 0)
+            print(residuos)
+            print(len(residuos))
+            return C2(Negate(residuos))
     else:
-        for i in range(0, 16):
-            if len(residuos) < 16:
-                residuos.insert(0, 0)
-        print(residuos)
-        print(len(residuos))
-        return residuos
+        nume = num
+        while num != 0:
+            residuos.insert(0, num % 2)
+            num //= 2
+        if(len(residuos) >= 17):
+            print(residuos, " Overflow")
+            return residuos
+        else:
+            for i in range(0, 16):
+                if len(residuos) < 16:
+                    residuos.insert(0, 0)
+            print(residuos)
+            print(len(residuos))
+            return residuos
 
 # Esta función toma como argumento una lista de numeros enteros(formato de los números binarios de este programa)
 # y los convierte a complemento a 1
@@ -78,9 +94,15 @@ def resta(num1: int, num2: int):
     bin1 = toBinary(num1)
     bin2 = toBinary(num2)
     restaDec = num1 - num2
-    print("La resta decimal es: ", restaDec)
-    resta = toBinary(restaDec)
-    return resta
+    if restaDec < 0:
+        pos = restaDec * -1
+        result = C2(Negate(toBinary(pos)))
+        print("La resta decimal es: ", restaDec)
+        return result
+    else:
+        print("La resta decimal es: ", restaDec)
+        resta = toBinary(restaDec)
+        return resta
 
 # Esta función compara que número es mayor o si son iguales
 
@@ -88,6 +110,13 @@ def resta(num1: int, num2: int):
 def comp(num1: int, num2: int):
     bin1 = toBinary(num1)
     bin2 = toBinary(num2)
+    if num1 < 0:
+        nume1 = num1*-1
+        bin1 = C2(Negate(toBinary(nume1)))
+    elif num2 < 0:
+        nume2 = num2*-1
+        bin2 = C2(Negate(toBinary(nume2)))
+
     if num1 < num2:
         print(bin1, " < ", bin2)
     elif num1 > num2:
@@ -120,12 +149,19 @@ while salir == True:
     if option == 1:
         entrada1 = input("ingresa un número entero sin signo: ")
         num1 = int(entrada1)
+        # if num1 < 0:
+        #     C2(Negate(toBinary(Neg(num1))))
+        # else:
         toBinary(num1)
     elif option == 2:
         entrada1 = input("ingresa un número entero sin signo: ")
         entrada2 = input("ingresa un número entero sin signo: ")
         num1 = int(entrada1)
         num2 = int(entrada2)
+        if num1 < 0:
+            resta(num2, num1)
+        elif num2 < 0:
+            resta(num1, num2)
         sum(num1, num2)
     elif option == 3:
         entrada1 = input("ingresa un número entero sin signo: ")
