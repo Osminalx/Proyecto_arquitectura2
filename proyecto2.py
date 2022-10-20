@@ -6,7 +6,7 @@ def toBinary(nume: int):
         while num != 0:
             residuos.insert(0, num % 2)
             num //= 2
-        if(len(residuos) >= 17):
+        if (len(residuos) >= 17):
             print(residuos, " Overflow")
             return residuos
         else:
@@ -17,11 +17,11 @@ def toBinary(nume: int):
             print(len(residuos))
             return C2(Negate(residuos))
     else:
-        nume = num
+        num = nume
         while num != 0:
             residuos.insert(0, num % 2)
             num //= 2
-        if(len(residuos) >= 17):
+        if (len(residuos) >= 17):
             print(residuos, " Overflow")
             return residuos
         else:
